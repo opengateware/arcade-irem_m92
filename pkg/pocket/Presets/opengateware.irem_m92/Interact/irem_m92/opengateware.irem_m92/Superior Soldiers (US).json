@@ -1,0 +1,177 @@
+{
+    "interact": {
+        "magic": "APF_VER_1",
+        "variables": [
+            {
+                "name": "Reset Core",
+                "id": 0,
+                "type": "action",
+                "enabled": true,
+                "address": "0xF0000000",
+                "value": 1
+            },
+            {
+                "name": "Start Button",
+                "port": "DSW",
+                "id": 1,
+                "type": "list",
+                "enabled": true,
+                "persist": true,
+                "address": "0xF1000000",
+                "defaultval": 0,
+                "mask": "0xFFFFFFDF",
+                "options": [
+                    {
+                        "name": "Start",
+                        "value": "0x00000000"
+                    },
+                    {
+                        "name": "Any",
+                        "value": "0x00000020"
+                    }
+                ]
+            },
+            {
+                "name": "Demo Sounds",
+                "port": "DSW",
+                "id": 2,
+                "type": "list",
+                "enabled": true,
+                "persist": true,
+                "address": "0xF1000000",
+                "defaultval": 0,
+                "mask": "0xFFFFFFBF",
+                "options": [
+                    {
+                        "name": "Off",
+                        "value": "0x00000000"
+                    },
+                    {
+                        "name": "On",
+                        "value": "0x00000040"
+                    }
+                ]
+            },
+            {
+                "name": "Service Mode",
+                "port": "DSW",
+                "id": 3,
+                "type": "list",
+                "enabled": true,
+                "persist": true,
+                "address": "0xF1000000",
+                "defaultval": 0,
+                "mask": "0xFFFFFF7F",
+                "options": [
+                    {
+                        "name": "Off",
+                        "value": "0x00000000"
+                    },
+                    {
+                        "name": "On",
+                        "value": "0x00000080"
+                    }
+                ]
+            },
+            {
+                "name": "Flip Screen",
+                "port": "DSW",
+                "id": 4,
+                "type": "list",
+                "enabled": true,
+                "persist": true,
+                "address": "0xF1000000",
+                "defaultval": 0,
+                "mask": "0xFFFFFEFF",
+                "options": [
+                    {
+                        "name": "Off",
+                        "value": "0x00000000"
+                    },
+                    {
+                        "name": "On",
+                        "value": "0x00000100"
+                    }
+                ]
+            },
+            {
+                "name": "Coin Mode",
+                "port": "DSW",
+                "id": 5,
+                "type": "list",
+                "enabled": true,
+                "persist": true,
+                "address": "0xF1000000",
+                "defaultval": 0,
+                "mask": "0xFFFF0FFF",
+                "options": [
+                    {
+                        "name": "1C/1C",
+                        "value": "0x00000000"
+                    },
+                    {
+                        "name": "2C/1C",
+                        "value": "0x00001000"
+                    },
+                    {
+                        "name": "3C/1C",
+                        "value": "0x00002000"
+                    },
+                    {
+                        "name": "4C/1C",
+                        "value": "0x00003000"
+                    },
+                    {
+                        "name": "5C/1C",
+                        "value": "0x00004000"
+                    },
+                    {
+                        "name": "6C/1C",
+                        "value": "0x00005000"
+                    },
+                    {
+                        "name": "1C/2C",
+                        "value": "0x00006000"
+                    },
+                    {
+                        "name": "1C/3C",
+                        "value": "0x00007000"
+                    },
+                    {
+                        "name": "1C/4C",
+                        "value": "0x00008000"
+                    },
+                    {
+                        "name": "1C/5C",
+                        "value": "0x00009000"
+                    },
+                    {
+                        "name": "1C/6C",
+                        "value": "0x0000A000"
+                    },
+                    {
+                        "name": "2C/3C",
+                        "value": "0x0000B000"
+                    },
+                    {
+                        "name": "3C/2C",
+                        "value": "0x0000C000"
+                    },
+                    {
+                        "name": "4C/3C",
+                        "value": "0x0000D000"
+                    },
+                    {
+                        "name": "2S/1C",
+                        "value": "0x0000E000"
+                    },
+                    {
+                        "name": "Free Play",
+                        "value": "0x0000F000"
+                    }
+                ]
+            }
+        ],
+        "messages": []
+    }
+}

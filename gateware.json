@@ -1,0 +1,47 @@
+{
+    "name": "irem_m92",
+    "displayName": "Irem M-92",
+    "description": "Irem M-92 Arcade Compatible Gateware IP Core",
+    "author": "opengateware",
+    "version": "0.1.0",
+    "license": "GPL-3.0-or-later",
+    "repository": "https://github.com/opengateware/arcade-irem_m92",
+    "keywords": [
+        "ecosystem:gateman"
+    ],
+    "scripts": {
+        "verilator": "echo \"Error: no simulation specified\" && exit 1",
+        "build:pocket": "quartus_sh --flow compile projects/irem_m92_pocket.qpf",
+        "program:pocket": "quartus_pgm -m jtag -c 1 -o \"p;projects/output_files/irem_m92_pocket.sof@1\""
+    },
+    "hardware": {
+        "id": "irem_m92",
+        "category": "Arcade",
+        "name": "Irem M92",
+        "year": 1991,
+        "manufacturer": "Irem"
+    },
+    "release": {
+        "image": "docs/git-social.jpg",
+        "folders": {
+            "output_folder": "projects/output_files",
+            "pkg_folder": "pkg",
+            "meta_folder": "pkg/meta",
+            "stage_folder": "staging",
+            "release_folder": "release"
+        },
+        "target": {
+            "pocket": {
+                "release_file": "{author}.{core}_{version}_{date}-{target}",
+                "metadata_file": "{author}.{core}_{version}_{date}-metadata"
+            }
+        }
+    },
+    "platforms": {
+        "pocket": "2.0.0"
+    },
+    "modules": {
+        "cpu-v30": "1.0.0",
+        "sound-jt51": "1.0.0"
+    }
+}

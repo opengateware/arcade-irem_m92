@@ -1,0 +1,30 @@
+{
+    "instance": {
+        "magic": "APF_VER_1",
+        "variant_select": {
+            "id": 777,
+            "select": false
+        },
+        "data_slots": [
+            {
+                "id": 1,
+                "filename": "gunforce.rom",
+                "md5": "8e6d7cf6b725502bb2a523a870eb4492"
+            }
+        ],
+        "memory_writes": [
+            {
+                "address": "0xF1000000",
+                "data": "0x00000000"
+            },
+            {
+                "address": "0xF2000000",
+                "data": "0x00"
+            },
+            {
+                "address": "0xF5000000",
+                "data": 64
+            }
+        ]
+    }
+}
