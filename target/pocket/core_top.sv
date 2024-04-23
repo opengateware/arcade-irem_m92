@@ -911,54 +911,54 @@ module core_top
     wire             hs_access_write;
     wire             hs_configured;
 
-    hiscore_io #(
-        // HiScore NVRAM
-        .HS_AW                    ( HS_AW                    ), // [p]
-        .HS_SW                    ( HS_SW                    ), // [p]
-        .HS_CFG_AW                ( HS_CFG_AW                ), // [p]
-        .HS_CFG_LW                ( HS_CFG_LW                ), // [p]
-        .HS_CONFIG                ( HS_CONFIG                ), // [p]
-        .HS_DATA                  ( HS_DATA                  ), // [p]
-        // MPU <-> FPGA (Data I/O)
-        .HS_MASK                  ( HS_MASK                  ), // [p]
-        .HS_WR_DELAY              ( HS_WR_DELAY              ), // [p]
-        .HS_WR_HOLD               ( HS_WR_HOLD               ), // [p]
-        .HS_RD_DELAY              ( HS_RD_DELAY              )  // [p]
-    ) u_pocket_hiscore_io (
-        .clk_74a                  ( clk_74a                  ), // [i]
-        .clk_memory               ( clk_sys                  ), // [i]
-        .pll_core_locked          ( pll_core_locked_s        ), // [i]
-        .reset_sw                 ( reset_sw                 ), // [i]
-        .pause_core               ( pause_core               ), // [i]
-        // Bridge Data Slots
-        .dataslot_requestwrite    ( dataslot_requestwrite    ), // [i]
-        .dataslot_requestwrite_id ( dataslot_requestwrite_id ), // [i]
-        .dataslot_requestread     ( dataslot_requestread     ), // [i]
-        .dataslot_requestread_id  ( dataslot_requestread_id  ), // [i]
-        .dataslot_allcomplete     ( dataslot_allcomplete     ), // [i]
-        // Bridge Write/Read to/From FPGA)
-        .bridge_endian_little     ( bridge_endian_little     ), // [i]
-        .bridge_addr              ( bridge_addr              ), // [i]
-        .bridge_wr                ( bridge_wr                ), // [i]
-        .bridge_wr_data           ( bridge_wr_data           ), // [i]
-        .bridge_rd                ( bridge_rd                ), // [i]
-        .bridge_rd_data           ( nvm_bridge_rd_data       ), // [o]
-        // Pocket Bridge Data Tables
-        .datatable_addr           ( datatable_addr           ), // [o]
-        .datatable_wren           ( datatable_wren           ), // [o]
-        .datatable_data           ( datatable_data           ), // [o]
-        // HiScore NVRAM Size
-        .nvram_size               ( nvram_size               ), // [i] Number of bytes required for Save
-        // HiScore Interface
-        .hs_write_en              ( hs_write_en              ), // [o] Write to game RAM (active high)
-        .hs_address               ( hs_address               ), // [o] Address in game RAM to read/write score data
-        .hs_data_in               ( hs_data_in               ), // [o] Data to send to game RAM
-        .hs_data_out              ( hs_data_out              ), // [i] Incoming data from game RAM
-        .hs_access_read           ( hs_access_read           ), // [o]
-        .hs_access_write          ( hs_access_write          ), // [o]
-        .hs_configured            ( hs_configured            ), // [o]
-        .hs_pause                 ( pause_req                )  // [o] Pause core CPU to prepare for/relax after RAM access
-    );
+    // hiscore_io #(
+    //     // HiScore NVRAM
+    //     .HS_AW                    ( HS_AW                    ), // [p]
+    //     .HS_SW                    ( HS_SW                    ), // [p]
+    //     .HS_CFG_AW                ( HS_CFG_AW                ), // [p]
+    //     .HS_CFG_LW                ( HS_CFG_LW                ), // [p]
+    //     .HS_CONFIG                ( HS_CONFIG                ), // [p]
+    //     .HS_DATA                  ( HS_DATA                  ), // [p]
+    //     // MPU <-> FPGA (Data I/O)
+    //     .HS_MASK                  ( HS_MASK                  ), // [p]
+    //     .HS_WR_DELAY              ( HS_WR_DELAY              ), // [p]
+    //     .HS_WR_HOLD               ( HS_WR_HOLD               ), // [p]
+    //     .HS_RD_DELAY              ( HS_RD_DELAY              )  // [p]
+    // ) u_pocket_hiscore_io (
+    //     .clk_74a                  ( clk_74a                  ), // [i]
+    //     .clk_memory               ( clk_sys                  ), // [i]
+    //     .pll_core_locked          ( pll_core_locked_s        ), // [i]
+    //     .reset_sw                 ( reset_sw                 ), // [i]
+    //     .pause_core               ( pause_core               ), // [i]
+    //     // Bridge Data Slots
+    //     .dataslot_requestwrite    ( dataslot_requestwrite    ), // [i]
+    //     .dataslot_requestwrite_id ( dataslot_requestwrite_id ), // [i]
+    //     .dataslot_requestread     ( dataslot_requestread     ), // [i]
+    //     .dataslot_requestread_id  ( dataslot_requestread_id  ), // [i]
+    //     .dataslot_allcomplete     ( dataslot_allcomplete     ), // [i]
+    //     // Bridge Write/Read to/From FPGA)
+    //     .bridge_endian_little     ( bridge_endian_little     ), // [i]
+    //     .bridge_addr              ( bridge_addr              ), // [i]
+    //     .bridge_wr                ( bridge_wr                ), // [i]
+    //     .bridge_wr_data           ( bridge_wr_data           ), // [i]
+    //     .bridge_rd                ( bridge_rd                ), // [i]
+    //     .bridge_rd_data           ( nvm_bridge_rd_data       ), // [o]
+    //     // Pocket Bridge Data Tables
+    //     .datatable_addr           ( datatable_addr           ), // [o]
+    //     .datatable_wren           ( datatable_wren           ), // [o]
+    //     .datatable_data           ( datatable_data           ), // [o]
+    //     // HiScore NVRAM Size
+    //     .nvram_size               ( nvram_size               ), // [i] Number of bytes required for Save
+    //     // HiScore Interface
+    //     .hs_write_en              ( hs_write_en              ), // [o] Write to game RAM (active high)
+    //     .hs_address               ( hs_address               ), // [o] Address in game RAM to read/write score data
+    //     .hs_data_in               ( hs_data_in               ), // [o] Data to send to game RAM
+    //     .hs_data_out              ( hs_data_out              ), // [i] Incoming data from game RAM
+    //     .hs_access_read           ( hs_access_read           ), // [o]
+    //     .hs_access_write          ( hs_access_write          ), // [o]
+    //     .hs_configured            ( hs_configured            ), // [o]
+    //     .hs_pause                 ( pause_req                )  // [o] Pause core CPU to prepare for/relax after RAM access
+    // );
 
     //! ------------------------------------------------------------------------
     //! Clocks

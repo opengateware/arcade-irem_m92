@@ -21,14 +21,14 @@ set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
 set_global_assignment -name SAVE_DISK_SPACE OFF
 set_global_assignment -name SMART_RECOMPILE ON
-set_global_assignment -name SEED 1
+set_global_assignment -name SEED 2
 
 # ==============================================================================
 # Analysis & Synthesis Assignments
 # ==============================================================================
 set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
 set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
-#set_global_assignment -name MUX_RESTRUCTURE OFF
+set_global_assignment -name MUX_RESTRUCTURE OFF
 set_global_assignment -name OPTIMIZATION_TECHNIQUE SPEED
 set_global_assignment -name PRE_MAPPING_RESYNTHESIS ON
 set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
@@ -78,12 +78,12 @@ set_global_assignment -name PHYSICAL_SYNTHESIS_EFFORT EXTRA
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
 set_global_assignment -name AUTO_RESOURCE_SHARING ON
 
-set_global_assignment -name ALM_REGISTER_PACKING_EFFORT MEDIUM
-set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION NEVER
+#set_global_assignment -name ALM_REGISTER_PACKING_EFFORT MEDIUM
+#set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION NEVER
 #set_global_assignment -name FITTER_EFFORT "FAST FIT"
-set_global_assignment -name AUTO_DELAY_CHAINS_FOR_HIGH_FANOUT_INPUT_PINS ON
-set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA ON
-set_global_assignment -name MUX_RESTRUCTURE ON
+#set_global_assignment -name AUTO_DELAY_CHAINS_FOR_HIGH_FANOUT_INPUT_PINS ON
+#set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA ON
+#set_global_assignment -name MUX_RESTRUCTURE ON
 # ==============================================================================
 # Incremental Compilation Assignments
 # ==============================================================================

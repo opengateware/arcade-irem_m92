@@ -17,7 +17,7 @@ body:
         Hi there,
 
         Thank you for opening an issue. Please note that we try to keep the issue tracker reserved for bug reports.
-        Make sure to [search for existing issues](https://github.com/opengateware/arcade-galivan/issues?q=label%3Abug) before filing a new one!
+        Make sure to [search for existing issues](https://github.com/opengateware/arcade-irem_m92/issues?q=label%3Abug) before filing a new one!
 
   - type: input
     id: version

@@ -17,12 +17,12 @@ body:
         Hi there,
 
         Please note that we try to keep the issue tracker reserved for bug reports.
-        Make sure to [search for existing questions](https://github.com/opengateware/arcade-galivan/issues?q=label%3Aquestion) before filing a new one!
+        Make sure to [search for existing questions](https://github.com/opengateware/arcade-irem_m92/issues?q=label%3Aquestion) before filing a new one!
 
   - type: textarea
     id: question
     attributes:
-      label: Ask a question about Cosmo Police Galivan Compatible Gateware IP Core
+      label: Ask a question about Irem M92 Compatible Gateware IP Core
       placeholder: |
         Ask your question here! Please keep the questions related to the FPGA Core only.
     validations:
