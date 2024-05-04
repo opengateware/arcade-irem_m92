@@ -67,6 +67,10 @@ set_clock_groups -asynchronous \
  -group { ic|core_pll|core_pll_inst|altera_pll_i|cyclonev_pll|counter[3].output_counter|divclk } \
  -group { ic|core_pll|core_pll_inst|altera_pll_i|cyclonev_pll|counter[4].output_counter|divclk } \
  -group { ic|core_pll|core_pll_inst|altera_pll_i|cyclonev_pll|counter[5].output_counter|divclk } \
+ -group { ic|video_pll|video_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk } \
+ -group { ic|video_pll|video_pll_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk } \
+ -group { ic|sdram_pll|sdram_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk } \
+ -group { ic|sdram_pll|sdram_pll_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk } \
  -group { ic|u_pocket_audio_mixer|audio_pll|mf_audio_pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk } \
  -group { ic|u_pocket_audio_mixer|audio_pll|mf_audio_pll_inst|altera_pll_i|general[1].gpll~PLL_OUTPUT_COUNTER|divclk }
 

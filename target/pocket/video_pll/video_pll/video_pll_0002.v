@@ -1,5 +1,5 @@
 `timescale 1ns/10ps
-module  core_pll_0002(
+module  video_pll_0002(
 
 	// interface 'refclk'
 	input wire refclk,
@@ -13,9 +13,6 @@ module  core_pll_0002(
 	// interface 'outclk1'
 	output wire outclk_1,
 
-	// interface 'outclk2'
-	output wire outclk_2,
-
 	// interface 'locked'
 	output wire locked
 );
@@ -24,15 +21,15 @@ module  core_pll_0002(
 		.fractional_vco_multiplier("false"),
 		.reference_clock_frequency("74.25 MHz"),
 		.operation_mode("direct"),
-		.number_of_clocks(3),
-		.output_clock_frequency0("40.000000 MHz"),
+		.number_of_clocks(2),
+		.output_clock_frequency0("6.666666 MHz"),
 		.phase_shift0("0 ps"),
 		.duty_cycle0(50),
 		.output_clock_frequency1("6.666666 MHz"),
-		.phase_shift1("0 ps"),
+		.phase_shift1("37500 ps"),
 		.duty_cycle1(50),
-		.output_clock_frequency2("6.666666 MHz"),
-		.phase_shift2("37500 ps"),
+		.output_clock_frequency2("0 MHz"),
+		.phase_shift2("0 ps"),
 		.duty_cycle2(50),
 		.output_clock_frequency3("0 MHz"),
 		.phase_shift3("0 ps"),
@@ -83,7 +80,7 @@ module  core_pll_0002(
 		.pll_subtype("General")
 	) altera_pll_i (
 		.rst	(rst),
-		.outclk	({outclk_2, outclk_1, outclk_0}),
+		.outclk	({outclk_1, outclk_0}),
 		.locked	(locked),
 		.fboutclk	( ),
 		.fbclk	(1'b0),

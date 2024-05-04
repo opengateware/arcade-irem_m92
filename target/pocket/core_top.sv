@@ -964,22 +964,30 @@ module core_top
     //! Clocks
     //! ------------------------------------------------------------------------
     wire pll_core_locked, pll_core_locked_s;
-    wire clk_sys;       //! Core :  40.000002Mhz
-    wire clk_vid;       //! Video:   6.666667Mhz
-    wire clk_vid_90deg; //! Video:   6.666667Mhz @ 90deg Phase Shift
-    wire clk_ram;       //! SDRAM: 120.000006Mhz
+    wire clk_sys;       //! Core :  40.000000Mhz
+    wire clk_vid;       //! Video:   6.666666Mhz
+    wire clk_vid_90deg; //! Video:   6.666666Mhz @ 90deg Phase Shift
+    wire clk_ram;       //! SDRAM: 120.000000Mhz
 
     core_pll core_pll
     (
         .refclk   ( clk_74a         ), // [i]
         .rst      ( 0               ), // [i]
 
-        .outclk_0 ( clk_ram         ), // [o]
-        .outclk_1 ( clk_sys         ), // [o]
-        .outclk_2 ( clk_vid         ), // [o]
-        .outclk_3 ( clk_vid_90deg   ), // [o]
+        // .outclk_0 ( clk_ram         ), // [o]
+        .outclk_0 ( clk_sys         ), // [o]
+        .outclk_1 ( clk_vid         ), // [o]
+        .outclk_2 ( clk_vid_90deg   ), // [o]
 
         .locked   ( pll_core_locked )  // [o]
+    );
+
+    sdram_pll sdram_pll
+    (
+        .refclk   ( clk_74a         ), // [i]
+        .rst      ( 0               ), // [i]
+
+        .outclk_0 ( clk_ram         )  // [o]
     );
 
     // Synchronize pll_core_locked into clk_74a domain before usage
